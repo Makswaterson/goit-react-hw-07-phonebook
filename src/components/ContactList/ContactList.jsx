@@ -2,7 +2,7 @@ import { ContactItem } from '../ContactItem/ContactItem';
 import { StyledList, Wrapper } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllContacts, getAllFilters } from 'redux/selectors';
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/operations';
 import { toast } from 'react-hot-toast';
 
 export const ContactList = () => {
