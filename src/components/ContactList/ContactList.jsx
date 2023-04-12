@@ -1,16 +1,13 @@
 import { ContactItem } from '../ContactItem/ContactItem';
 import { StyledList, Wrapper } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAllContacts, selectAllFilters } from 'redux/selectors';
+import { selectAllContacts, selectVisibleContacts } from 'redux/selectors';
 import { deleteContact } from 'redux/operations';
 import { toast } from 'react-hot-toast';
 
 export const ContactList = () => {
   const contacts = useSelector(selectAllContacts);
-  const filters = useSelector(selectAllFilters);
-  const setVisibleContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filters.toLowerCase().trim())
-  );
+  const visibleContacts = useSelector(selectVisibleContacts);
 
   const dispatch = useDispatch();
 
@@ -26,7 +23,7 @@ export const ContactList = () => {
   return (
     <Wrapper>
       <StyledList>
-        {setVisibleContacts.map(({ id, name, number }) => {
+        {visibleContacts.map(({ id, name, number }) => {
           return (
             <ContactItem
               key={id}
