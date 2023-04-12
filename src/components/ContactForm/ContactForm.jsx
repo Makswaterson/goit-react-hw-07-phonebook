@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 import { FormStyled, Button, FieldStyled, Label } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllContacts } from 'redux/selectors';
+import { selectAllContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 
 const validationContacts = Yup.object().shape({
@@ -28,7 +28,7 @@ const initialValues = {
 };
 
 export const ContactForm = () => {
-  const contacts = useSelector(getAllContacts);
+  const contacts = useSelector(selectAllContacts);
   const dispatch = useDispatch();
   const onHandleSubmit = (data, { resetForm }) => {
     const contact = {

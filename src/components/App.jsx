@@ -3,11 +3,11 @@ import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { AppStyled } from './App.styled';
 import { useSelector } from 'react-redux';
-import { getAllContacts } from '../redux/selectors';
+import { selectAllContacts } from '../redux/selectors';
 import { Toaster } from 'react-hot-toast';
 
 export const App = () => {
-  const contacts = useSelector(getAllContacts);
+  const contacts = useSelector(selectAllContacts);
 
   return (
     <AppStyled>

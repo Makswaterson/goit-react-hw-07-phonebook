@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilterContacts } from 'redux/filtersSlice';
 import { SectionFilter, FilterFind, InputFilter } from './Filter.styled';
-import { getAllFilters } from 'redux/selectors';
+import { selectAllFilters } from 'redux/selectors';
 
 export const Filter = () => {
-  const filters = useSelector(getAllFilters);
+  const filters = useSelector(selectAllFilters);
   const dispatch = useDispatch();
 
   const changeInputValue = evt => {
