@@ -17,6 +17,7 @@ export const ContactList = () => {
   const deleteContacts = id => {
     dispatch(deleteContact(id));
     const deleteToast = contacts.find(contact => contact.id === id);
+
     toast.success(
       `${deleteToast.name} is deleted from the contacts list of phonebook!`
     );
